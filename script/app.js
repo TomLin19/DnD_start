@@ -2,7 +2,7 @@
 	console.log('fired!');
 	// set up the puzzle pieces and boards
 	const piecesBoard = document.querySelector(".puzzle-pieces"),
-	      puzzleBoaed = document.querySelector(".puzzle-board"),
+	      puzzleBoard = document.querySelector(".puzzle-board"),
 	      puzzleSelectors = document.querySelectorAll("#buttonHolder img"),
 	      dropZones = document.querySelectorAll(".drop-zone");
 
@@ -13,6 +13,13 @@
 	//
 	function switchImage(){
 		console.log(this);
+        //grap thecorresponding  background image (0,1,2or3)
+         // and get it from the images folder ()
+		let bgImage = `./images/backGround${this.dataset.puzzleref}.jpg`;
+          //set background image style on the  dropzone container
+		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
+
+		//debugger;
 	}
 
 	puzzleSelectors.forEach(thumbnail => { thumbnail.addEventListener("click", switchImage); });
